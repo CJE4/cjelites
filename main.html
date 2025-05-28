@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CJ’s Elites | Live Gaming & Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #7CED4A;
+      --font-main: 'Poppins', sans-serif;
+      --glow: 0 0 15px #7CED4Aaa;
+    }
+
+    [data-theme="dark"] {
+      --main-color: #1a1a1a;
+      --background: #0e0e10;
+      --section-bg: #1a1a1d;
+      --text-color: #ffffff;
+      --link-color: #7CED4A;
+      --tab-bg: #1a1a1d;
+      --tab-hover-bg: #1a1a1a;
+      --tab-active-bg: #7CED4A;
+      --tab-active-color: #000000;
+    }
+
+    [data-theme="light"] {
+      --main-color: #ffffff;
+      --background: #f0f0f0;
+      --section-bg: #ffffff;
+      --text-color: #000000;
+      --link-color: #1a1a1a;
+      --tab-bg: #e0e0e0;
+      --tab-hover-bg: #d0d0d0;
+      --tab-active-bg: #7CED4A;
+      --tab-active-color: #000000;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text-color);
+      font-family: var(--font-main);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      position: relative;
+      background: url('https://i.postimg.cc/44HVBVZR/CJ-ELITE-BANNER.gif') no-repeat center center/cover;
+      color: #ffffff;
+      text-align: center;
+      padding: 80px 20px 120px;
+    }
+
+    header img.logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+      height: auto;
+      border-radius: 10px;
+      user-select: none;
+    }
+
+    .header-text-container {
+      display: inline-block;
+      padding: 25px 45px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      box-shadow: 0 0 20px #7CED4Aaa;
+      user-select: none;
+      max-width: 800px;
+    }
+
+    header h1 {
+      font-size: 4.2em;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-shadow:
+        0 0 8px #7CED4A,
+        0 0 20px #7CED4A,
+        0 0 40px #7CED4Aaa,
+        0 0 60px #7CED4Aaa;
+    }
+
+    header p {
+      font-size: 1.8em;
+      margin-top: 12px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #d0ffd0;
+      text-shadow:
+        0 0 10px #7CED4A99,
+        0 0 25px #7CED4Aaa;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      gap: 10px;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #00000088;
+      user-select: none;
+      font-size: 1.1em;
+    }
+
+    .button img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .button.discord {
+      background-color: #5865F2;
+      box-shadow:
+        0 0 8px #5865F2,
+        0 0 20px #5865F2,
+        0 0 30px #7CED4A,
+        0 0 45px #7CED4A;
+      color: #fff;
+    }
+
+    .button.discord:hover {
+      background-color: #4752c4;
+      box-shadow:
+        0 0 12px #5865F2,
+        0 0 30px #7CED4A,
+        0 0 45px #7CED4A,
+        0 0 60px #7CED4A;
+    }
+
+    .button.youtube {
+      background-color: #FF0000;
+    }
+
+    .button.youtube:hover {
+      background-color: #cc0000;
+    }
+
+    .button.twitch {
+      background-color: #9146FF;
+    }
+
+    .button.twitch:hover {
+      background-color: #7a39e6;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      padding: 15px 30px;
+      background-color: var(--tab-bg);
+      color: var(--text-color);
+      border-radius: 5px;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+      margin-top: 20px;
+    }
+
+    .tabs a:hover {
+      background-color: var(--tab-hover-bg);
+    }
+
+    .tabs a.active {
+      background-color: var(--tab-active-bg);
+      color: var(--tab-active-color);
+      box-shadow: 0 0 10px var(--accent), 0 0 25px var(--accent);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 40px;
+      background-color: var(--section-bg);
+      border-radius: 16px;
+      margin: 40px auto;
+      max-width: 900px;
+      box-shadow: var(--glow);
+    }
+
+    .active-tab {
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      color: var(--text-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid #444;
+    }
+
+    th {
+      background-color: var(--main-color);
+    }
+
+    td {
+      background-color: #222;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+      margin-top: 40px;
+    }
+
+    .highlight-box {
+      padding: 25px;
+      background-color: var(--section-bg);
+      border-radius: 16px;
+      box-shadow: var(--glow);
+      margin-bottom: 20px;
+    }
+
+    .highlight-box h2 {
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--tab-bg);
+      color: var(--text-color);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--tab-hover-bg);
+    }
+  </style>
+  <script>
+    // Theme toggle functionality
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
+
+    // Tab switching functionality
+    function switchTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) activeTab.classList.add('active-tab');
+
+      const tabButtons = document.querySelectorAll('.tabs a');
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+
+      const clickedButton = Array.from(tabButtons).find(btn => btn.getAttribute('onclick')?.includes(tabId));
+      if (clickedButton) clickedButton.classList.add('active');
+    }
+
+    // Initialize theme and default tab on page load
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+
+      document.getElementById('about').classList.add('active-tab');
+      const aboutTab = document.querySelector('.tabs a[onclick*="about"]');
+      if (aboutTab) {
+        aboutTab.classList.add('active');
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <img class="logo" src="https://i.postimg.cc/9fpNpFSs/CJ-ELITER-LOGO.jpg" alt="CJ Logo" />
+    <div class="header-text-container">
+      <h1>🎮 CJ’s Elites</h1>
+      <p>Streaming BTD Battles 2 & Call of Duty • Join the squad!</p>
+      <div class="button-group">
+        <a href="https://youtube.com/@cj-xc2nm?si=7ntRDCkHTLSDilQp" class="button youtube" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube" /> YouTube
+        </a>
+        <a href="https://discord.gg/JPXdgZ7x6W" class="button discord" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord" /> Join CJ's Elites
+        </a>
+        <a href="https://www.twitch.tv/cj_5e" class="button twitch" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/twitch.png" alt="Twitch" /> Twitch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <a href="javascript:void(0);" class="tab active" onclick="switchTab('about')">About Me</a>
+    <a href="javascript:void(0);" class="tab" onclick="switchTab('content')">Content</a>
+    <a href="javascript:void(0);" class="tab" onclick="switchTab('schedule')">Schedule</a>
+    <a href="javascript:void(0);" class="tab" onclick="switchTab('community')">Community</a>
+  </div>
+
+  <div id="about" class="tab-content active-tab highlight-box">
+    <h2>🌟 Welcome to CJ’s Elites</h2>
+    <p>We are a top-tier gaming community focused on <strong>Bloons TD Battles 2</strong> and <strong>Call of Duty</strong>. Whether you’re here to <em>climb the ladder</em>, <em>meme with friends</em>, or <em>learn elite strats</em> — you’ve found your new home.</p>
+    <ul>
+      <li>🎮 Matchmaking & 1v1 Challenges</li>
+      <li>📚 Strategy Sharing & Loadouts</li>
+      <li>🏆 Tournaments & Prize Events</li>
+      <li>🎵 Chill Chat, Memes, & Music Nights</li>
+      <li>📢 Game Updates, Patch Notes, and Tips</li>
+      <li>🎥 Share your gameplay clips & get featured</li>
+    </ul>
+    <p>We’re not just a stream — we’re a movement. Join the squad. Pop some Bloons. Dominate the competition.</p>
+  </div>
+
+  <div id="content" class="tab-content highlight-box">
+    <h2>🎥 Content Hub</h2>
+    <p>Catch every moment — from sweaty wins to hilarious fails! I stream regularly on Twitch and upload exclusive content on YouTube.</p>
+    <p>Expect weekly VODs, gameplay highlights, tips & tricks, tutorials, and epic community moments. Plus, special event coverage and tournament recaps to keep you in the loop.</p>
+    <p>Whether you’re looking to improve your gameplay, laugh at fails, or just chill with great content, CJ’s Elites has you covered.</p>
+  </div>
+
+  <div id="schedule" class="tab-content highlight-box">
+    <h2>📅 Streaming Schedule (EST)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Game</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sunday</td>
+          <td>9:00 AM – 12:00 PM</td>
+          <td>BTD Battles 2 & COD (Ranked & Community)</td>
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td>2:30 PM – 4:00 PM</td>
+          <td>BTD Battles 2 (Strategy Focus)</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>2:30 PM – 4:00 PM</td>
+          <td>Call of Duty (Competitive / Chill)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="community" class="tab-content highlight-box">
+    <h2>🤝 Join the CJ’s Elites Community</h2>
+    <p>Our community is the heart and soul of CJ’s Elites. Here’s what makes it special:</p>
+    <ul>
+      <li>💬 Active Discord server with channels for gaming, memes, tech talk, and more.</li>
+      <li>🎉 Weekly community events and giveaways exclusive to members.</li>
+      <li>📣 Regular shoutouts and featured player spotlights.</li>
+      <li>🎨 Custom roles, badges, and exclusive access for supporters.</li>
+      <li>👥 Friendly and inclusive environment for all skill levels.</li>
+      <li>🤖 Helpful bots for game stats, music, and fun interactions.</li>
+      <li>📝 Feedback channel to help shape the future of CJ’s Elites.</li>
+    </ul>
+    <p>Ready to level up your gaming and join an amazing crew? Hit that Discord button above or below and become a part of something epic.</p>
+  </div>
+
+  <footer>
+    © 2025 CJ’s Elites
+  </footer>
+</body>
+</html>
