@@ -96,69 +96,84 @@
         0 0 25px #7CED4Aaa;
     }
 
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+   @keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px var(--glow-color),
+                0 0 20px var(--glow-color),
+                0 0 30px #7CED4A,
+                0 0 45px #7CED4A;
+  }
+  50% {
+    box-shadow: 0 0 16px var(--glow-color),
+                0 0 30px var(--glow-color),
+                0 0 40px #7CED4A,
+                0 0 60px #7CED4A;
+  }
+  100% {
+    box-shadow: 0 0 8px var(--glow-color),
+                0 0 20px var(--glow-color),
+                0 0 30px #7CED4A,
+                0 0 45px #7CED4A;
+  }
+}
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      color: #fff;
-      gap: 10px;
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px #00000088;
-      user-select: none;
-      font-size: 1.1em;
-    }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  gap: 10px;
+  font-size: 1.1em;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
 
-    .button img {
-      width: 22px;
-      height: 22px;
-    }
+.button img {
+  width: 22px;
+  height: 22px;
+}
 
-    .button.discord {
-      background-color: #5865F2;
-      box-shadow:
-        0 0 8px #5865F2,
-        0 0 20px #5865F2,
-        0 0 30px #7CED4A,
-        0 0 45px #7CED4A;
-      color: #fff;
-    }
+/* Discord */
+.button.discord {
+  background-color: #5865F2;
+  --glow-color: #5865F2;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
 
-    .button.discord:hover {
-      background-color: #4752c4;
-      box-shadow:
-        0 0 12px #5865F2,
-        0 0 30px #7CED4A,
-        0 0 45px #7CED4A,
-        0 0 60px #7CED4A;
-    }
+.button.discord:hover {
+  background-color: #4752c4;
+  transform: scale(1.05);
+}
 
-    .button.youtube {
-      background-color: #FF0000;
-    }
+/* YouTube */
+.button.youtube {
+  background-color: #FF0000;
+  --glow-color: #FF0000;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
 
-    .button.youtube:hover {
-      background-color: #cc0000;
-    }
+.button.youtube:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
 
-    .button.twitch {
-      background-color: #9146FF;
-    }
+/* Twitch */
+.button.twitch {
+  background-color: #9146FF;
+  --glow-color: #9146FF;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
 
-    .button.twitch:hover {
-      background-color: #7a39e6;
-    }
+.button.twitch:hover {
+  background-color: #7a39e6;
+  transform: scale(1.05);
+}
+
+
 
     .tabs {
       display: flex;
@@ -177,11 +192,16 @@
       font-weight: bold;
       transition: background 0.3s, color 0.3s;
       margin-top: 20px;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
     }
 
     .tabs a:hover {
-      background-color: var(--tab-hover-bg);
-    }
+  background-color: var(--tab-hover-bg);
+  color: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  transform: scale(1.05);
+}
+
 
     .tabs a.active {
       background-color: var(--tab-active-bg);
